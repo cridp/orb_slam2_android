@@ -1,0 +1,2 @@
+rootProject.name='orb_slam2_android'
+include ':openCVLibrary249', ':oRB_SLAM2_Android'
