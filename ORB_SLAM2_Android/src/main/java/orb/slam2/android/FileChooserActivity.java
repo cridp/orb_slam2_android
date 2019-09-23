@@ -95,8 +95,7 @@ public class FileChooserActivity extends Activity {
 	//Get all files for the current path
 	private File[] folderScan(String path) {
 		File file = new File(path);
-		File[] files = file.listFiles();
-		return files;
+		return file.listFiles();
 	}
 
 	private OnClickListener mClickListener = new OnClickListener() {

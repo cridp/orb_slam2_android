@@ -2,14 +2,14 @@
     xmlns:opencv="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:background="@drawable/test">
+    android:background="@drawable/test"
+    android:gravity="center_horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/surfaceLinear"
@@ -18,11 +18,7 @@
             android:layout_marginTop="30dp"
             android:layout_weight="1.09"
             android:gravity="center_vertical"
-            android:orientation="vertical">
-
-
-
-        </LinearLayout>
+            android:orientation="vertical"/>
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -34,9 +30,9 @@
                 android:id="@+id/tutorial1_activity_java_surface_view"
                 android:layout_width="250dip"
                 android:layout_height="230dip"
-                android:layout_centerHorizontal="true"
-
                 android:layout_alignParentTop="true"
+
+                android:layout_centerHorizontal="true"
                 android:layout_marginStart="5dip"
                 android:layout_marginTop="5dip"
                 android:background="@drawable/border"
@@ -48,9 +44,9 @@
                 android:id="@+id/tutorial1_activity_native_surface_view"
                 android:layout_width="250dip"
                 android:layout_height="23dip"
-                android:layout_centerHorizontal="true"
-
                 android:layout_alignParentTop="true"
+
+                android:layout_centerHorizontal="true"
                 android:layout_marginStart="5dip"
                 android:layout_marginTop="5dip"
                 android:background="@drawable/border"
@@ -71,38 +67,35 @@
                     android:layout_weight="1"
                     android:scaleType="fitXY" />
 
-
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
-                   <TextView
-                    android:id="@+id/dataTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="31dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginStart="50dp"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/TextSize"
-                    android:text="data collection" />
+                    <TextView
+                        android:id="@+id/dataTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="31dp"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="15dp"
+                        android:text="data collection"
+                        android:textSize="@dimen/TextSize"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/distTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="45dp"
                         android:layout_marginStart="50dp"
+                        android:layout_marginTop="45dp"
                         android:text="" />
-
-
-              </RelativeLayout>
+                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="290dp"
                 android:layout_marginStart="115dp"
+                android:layout_marginTop="290dp"
                 android:orientation="horizontal">
 
                 <Button
@@ -124,8 +117,8 @@
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="15dp"
-                    android:text="Track Only"
                     android:background="@drawable/button"
+                    android:text="Track Only"
                     android:textColor="#ffffff"
                     android:textSize="12sp"
                     android:visibility="gone" />
@@ -147,11 +140,11 @@
                     android:layout_height="50dp"
                     android:layout_marginStart="55dp"
 
-                    android:text="Start Distance"
                     android:background="@drawable/button"
+                    android:text="Start Distance"
                     android:textColor="#ffffff"
                     android:textSize="12sp"
-                    android:visibility="visible"/>
+                    android:visibility="visible" />
             </LinearLayout>
         </RelativeLayout>
 
@@ -159,8 +152,5 @@
             android:layout_width="0.5dip"
             android:layout_height="match_parent"
             android:background="#CCCCCC" />
-
-
     </LinearLayout>
-
 </RelativeLayout>

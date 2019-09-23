@@ -438,7 +438,7 @@ public class ORBSLAMForTestActivity extends Activity implements
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
+	public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 		String toastMesage = "";
 		Log.i(TAG, "called onOptionsItemSelected; selected item: " + item);
 
