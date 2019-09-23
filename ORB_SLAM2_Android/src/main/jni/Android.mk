@@ -1,6 +1,6 @@
 LOCAL_PATH:= $(call my-dir)
 
-#############DLib模块##################
+#############DLib module##################
 
 include $(CLEAR_VARS)
 MAINDIR:= $(LOCAL_PATH)
@@ -19,19 +19,22 @@ LOCAL_PATH := $(MAINDIR)
 include $(BUILD_SHARED_LIBRARY)
 ######################################
 
-#############DLib模块##################
+OPENCV_MK_PATH := C:\Users\Pascal\AndroidstudioProjects\OpenCV-2.4.9-android-sdk\sdk\native\jni\OpenCV.mk
+
+#############DLib module##################
 include $(CLEAR_VARS)
 MAIN_DIR:=$(LOCAL_PATH)
 OPENCV_LIB_TYPE:=STATIC
-ifeq ("$(wildcard $(OPENCV_MK_PATH))","")  
-#try to load OpenCV.mk from default install location  
+ifeq ("$(wildcard $(OPENCV_MK_PATH))","")
+#try to load OpenCV.mk from default install location
 include ././AndroidStudioProjects/OpenCV-2.4.9-android-sdk/sdk/native/jni/OpenCV.mk
-include $(OPENCV_MK_PATH)  
-endif 
+else
+include $(OPENCV_MK_PATH)
+endif
 LOCAL_PATH:=$(MAIN_DIR)
 LOCAL_MODULE:=DLib
 
-####################源文件部分######################################
+####################Source file section######################################
 LOCAL_C_INCLUDES+=$(LOCAL_PATH)/Thirdparty/DBoW2/DLib/include/DUtils
 FILE_LIST:=$(wildcard $(LOCAL_PATH)/Thirdparty/DBoW2/DLib/src/DUtils/*.cpp)
 LOCAL_SRC_FILES+=$(FILE_LIST:$(LOCAL_PATH)/%=%)
@@ -44,7 +47,7 @@ LOCAL_SRC_FILES+=$(FILE_LIST:$(LOCAL_PATH)/%=%)
 #FILE_LIST:=$(wildcard $(LOCAL_PATH)/Thirdparty/DBoW2/DLib/src/DVision/*.cpp)
 #LOCAL_SRC_FILES+=$(FILE_LIST:$(LOCAL_PATH)/%=%)
 
-################BOOST#####################部分
+################BOOST#####################part
 BOOST_VERSION      := 1_49
 PROJECT_ROOT       := $(LOCAL_PATH)
 BOOST_INCLUDE_PATH := $(PROJECT_ROOT)/Thirdparty/Boost/include/boost-1_49
@@ -54,19 +57,19 @@ LOCAL_LDLIBS    := -llog
 # The order of these libraries is often important.
 LOCAL_LDLIBS += -L$(BOOST_LIB_PATH)     
 LOCAL_LDLIBS    +=-lz -llog -landroid -lEGL -lGLESv1_CM
-LOCAL_CPPFLAGS := -std=c++11 -pthread -frtti -fexceptions
-LOCAL_CPPFLAGS += -D__cplusplus=201103L
+#PP LOCAL_CPPFLAGS := -std=c++11 -pthread -frtti -fexceptions
+#PP LOCAL_CPPFLAGS += -D__cplusplus=201103L
 
 #LOCAL_EXPORT_C_INCLUDES+=$(LOCAL_PATH)/Thirdparty/DBoW2/DLib/include/DUtils
 #LOCAL_EXPORT_C_INCLUDES+=$(LOCAL_PATH)/Thirdparty/DBoW2/DLib/include/DUtilsCV
 LOCAL_EXPORT_C_INCLUDES+=$(LOCAL_PATH)/Thirdparty/DBoW2/DLib/include
 LOCAL_EXPORT_C_INCLUDES+=$(BOOST_INCLUDE_PATH)
-LOCAL_EXPORT_C_INCLUDES+=././OpenCV-2.4.9-android-sdk/sdk/native/jni/include
+LOCAL_EXPORT_C_INCLUDES+=$(OPENCV_MK_PATH) #PP ././OpenCV-2.4.9-android-sdk/sdk/native/jni/include
 LOCAL_PATH:=$(MAIN_DIR)
 include $(BUILD_SHARED_LIBRARY)
 ###############################################################
 
-##############DBoW2模块#########################################
+##############DBoW2 module#########################################
 include $(CLEAR_VARS)
 MAIN_DIR:=$(LOCAL_PATH)
 
@@ -85,14 +88,13 @@ FILE_LIST:=$(wildcard $(LOCAL_PATH)/Thirdparty/DBoW2/src/*.cpp)
 LOCAL_SRC_FILES+=$(FILE_LIST:$(LOCAL_PATH)/%=%)
 LOCAL_SHARED_LIBRARIES+=DLib
 LOCAL_EXPORT_C_INCLUDES+=$(LOCAL_PATH)/Thirdparty/DBoW2/include
-LOCAL_CPPFLAGS := -std=c++11 -pthread -frtti -fexceptions
-LOCAL_CPPFLAGS += -D__cplusplus=201103L
+#PP LOCAL_CPPFLAGS := -std=c++11 -pthread -frtti -fexceptions
+#PP LOCAL_CPPFLAGS += -D__cplusplus=201103L
 LOCAL_PATH:=$(MAIN_DIR)
 include $(BUILD_SHARED_LIBRARY)
 ###############################################################
 
-
-###################G2O模块##################################
+###################G2O module##################################
 include $(CLEAR_VARS)
 MAIN_DIR:=$(LOCAL_PATH)
 LOCAL_C_INCLUDES+=$(LOCAL_PATH)/Thirdparty/g2o/g2o/core
@@ -116,13 +118,13 @@ LOCAL_SHARED_LIBRARIES+=lapack
 LOCAL_MODULE:=g2o
 LOCAL_EXPORT_LDLIBS := $(LOCAL_LDLIBS)
 LOCAL_EXPORT_C_INCLUDES+=LOCAL_C_INCLUDES
-LOCAL_CPPFLAGS := -std=c++11 -pthread -frtti -fexceptions
-LOCAL_CPPFLAGS += -D__cplusplus=201103L
+#PP LOCAL_CPPFLAGS := -std=c++11 -pthread -frtti -fexceptions
+#PP LOCAL_CPPFLAGS += -D__cplusplus=201103L
 LOCAL_PATH:=$(MAIN_DIR)
 include $(BUILD_SHARED_LIBRARY)
 ############################################################
 
-##############Pangolin模块##################################
+##############Pangolin module##################################
 #include $(CLEAR_VARS)
 #MAIN_DIR:=$(LOCAL_PATH)
 #
@@ -181,7 +183,7 @@ include $(BUILD_SHARED_LIBRARY)
 #
 #include $(BUILD_SHARED_LIBRARY)
 
-##############ORB_SLAM2模块##################################
+##############ORB_SLAM2 module##################################
 include $(CLEAR_VARS)
 MAIN_DIR:=$(LOCAL_PATH)
 OPENCV_LIB_TYPE:=STATIC
@@ -203,13 +205,13 @@ LOCAL_SHARED_LIBRARIES+=g2o
 LOCAL_SHARED_LIBRARIES+=pangolin
 LOCAL_LDLIBS += -llog -landroid -lEGL -lGLESv1_CM 
 LOCAL_EXPORT_C_INCLUDES+=$(LOCAL_PATH)/ORB_SLAM2/include
-LOCAL_CPPFLAGS := -std=c++11 -pthread -frtti -fexceptions -ftemplate-backtrace-limit=0
-LOCAL_CPPFLAGS += -D__cplusplus=201103L
+#PP LOCAL_CPPFLAGS := -std=c++11 -pthread -frtti -fexceptions -ftemplate-backtrace-limit=0
+#PP LOCAL_CPPFLAGS += -D__cplusplus=201103L
 LOCAL_PATH:=$(MAIN_DIR)
 include $(BUILD_SHARED_LIBRARY)
 ############################################################
 
-##############ORB_SLAM2 執行模块###############################
+##############ORB_SLAM2 Execution module###############################
 include $(CLEAR_VARS)
 MAIN_DIR:=$(LOCAL_PATH)
 OPENCV_LIB_TYPE:=STATIC
@@ -227,8 +229,8 @@ LOCAL_SHARED_LIBRARIES+=ORB_SLAM2
 LOCAL_SHARED_LIBRARIES+=g2o
 LOCAL_LDLIBS += -llog -landroid -lEGL -lGLESv1_CM  
 
-LOCAL_CPPFLAGS := -std=c++11 -pthread -frtti -fexceptions -ftemplate-backtrace-limit=0
-LOCAL_CPPFLAGS += -D__cplusplus=201103L
+#PP LOCAL_CPPFLAGS := -std=c++11 -pthread -frtti -fexceptions -ftemplate-backtrace-limit=0
+#PP LOCAL_CPPFLAGS += -D__cplusplus=201103L
 LOCAL_PATH:=$(MAIN_DIR)
 include $(BUILD_SHARED_LIBRARY)
 ############################################################

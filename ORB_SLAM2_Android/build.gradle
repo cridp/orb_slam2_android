@@ -5,6 +5,8 @@ android {
     buildToolsVersion '29.0.2'
 
     sourceSets.main {
+        //Notice 1: When using custom Android.mk, we should first disable Gradle to build the jni folder as before, and sourceSets.main.jni.srcDirs = [] just does this job!
+        //jni.srcDirs = ['jni']
         jni.srcDirs = []
     }
 
@@ -14,21 +16,39 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
+          externalNativeBuild {
+//            cmake {
+//                cppFlags ""
+                // Specifies the ABI configurations of your native
+                // libraries Gradle should build and package with your APK.
+//                abiFilters 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a'
+//            }
+        }
         ndk {
+            abiFilters 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a'
             moduleName "lapack"
         }
         multiDexEnabled = true
     }
-
+    externalNativeBuild {
+ //       cmake {
+ //           path "src/main/cpp/CMakeLists.txt"
+ //           version "3.10.2"
+ //       }
+        ndkBuild {
+//            path file('src/main/jni/Android.mk')
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            multiDexEnabled = true
         }
         debug {
             jniDebuggable = true
             debuggable = true
+            multiDexEnabled = true
         }
     }
     compileOptions {
@@ -38,8 +58,7 @@ android {
 }
 
 dependencies {
-    implementation project(':openCVLibrary249')
-//    compile 'com.android.support:support-v4:19.1.0'
+    //    compile 'com.android.support:support-v4:19.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.legacy:legacy-support-v13:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
@@ -48,4 +67,5 @@ dependencies {
 //    compile "com.android.support:support-v13:19.1.0"
 //    compile "com.android.support:cardview-v7:+"
 //    compile 'com.android.support:appcompat-v7:+'
+    api project(':openCVLibrary249')
 }

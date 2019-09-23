@@ -142,9 +142,9 @@ public class ORBSLAMForTestActivity extends Activity implements
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);// 隐藏标题
+        requestWindowFeature(Window.FEATURE_NO_TITLE); // Hide title
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);// Set full screen
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         setContentView(R.layout.activity_test_orb);
@@ -314,8 +314,8 @@ public class ORBSLAMForTestActivity extends Activity implements
 
         }
     }
-    //maxiaoba
 
+    //maxiaoba
     Handler myHandler = new Handler() {
         public void handleMessage(Message msg) {
 
@@ -344,9 +344,6 @@ public class ORBSLAMForTestActivity extends Activity implements
   //                              resultImg = Bitmap.createBitmap(w, h,
   //                                      Config.RGB_565);
   //                              resultImg.setPixels(resultInt, 0, w, 0, 0, w, h);
-
-
-
 
                                 runOnUiThread(new Runnable() {
                                     @Override
@@ -467,6 +464,7 @@ public class ORBSLAMForTestActivity extends Activity implements
 
     }
 
+    @Override
     public void onDestroy() {
         super.onDestroy();
         if (mOpenCvCameraView != null)
@@ -481,7 +479,7 @@ public class ORBSLAMForTestActivity extends Activity implements
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        String toastMesage = new String();
+        String toastMesage = "";
         Log.i(TAG, "called onOptionsItemSelected; selected item: " + item);
 
         if (item == mItemSwitchCamera) {
@@ -492,9 +490,11 @@ public class ORBSLAMForTestActivity extends Activity implements
         return true;
     }
 
+    @Override
     public void onCameraViewStarted(int width, int height) {
     }
 
+    @Override
     public void onCameraViewStopped() {
     }
 
