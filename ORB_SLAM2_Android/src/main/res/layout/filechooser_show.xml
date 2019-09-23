@@ -10,7 +10,7 @@
         android:id="@+id/imgBackFolder"
         android:layout_width="40dip"
         android:layout_height="40dip"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_margin="2dip"
         android:adjustViewBounds="true"
         android:textColor="#ffffff"
@@ -21,10 +21,10 @@
         android:id="@+id/tvPath"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignTop="@id/imgBackFolder"
-        android:layout_marginRight="2dip"
-        android:layout_toLeftOf="@id/imgBackFolder"
+        android:layout_marginEnd="2dip"
+        android:layout_toStartOf="@id/imgBackFolder"
         android:gravity="left"
         android:textColor="#FFA500"
         android:textSize="16sp" />
@@ -34,7 +34,7 @@
         android:layout_width="40dip"
         android:layout_height="40dip"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:textColor="#ffffff"
         android:background="@drawable/button"
         android:gravity="center"
@@ -46,7 +46,7 @@
         android:layout_width="40dip"
         android:layout_height="40dip"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:textColor="#ffffff"
         android:background="@drawable/button"
         android:gravity="center"
@@ -64,7 +64,8 @@
         android:horizontalSpacing="10dp"
         android:numColumns="auto_fit"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp" />
+        android:verticalSpacing="10dp"
+        android:focusable="true" />
 
     <TextView
         android:id="@+id/tvEmptyHint"

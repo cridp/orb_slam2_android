@@ -37,7 +37,7 @@
                 android:layout_centerHorizontal="true"
 
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="5dip"
+                android:layout_marginStart="5dip"
                 android:layout_marginTop="5dip"
                 android:background="@drawable/border"
                 android:visibility="gone"
@@ -51,7 +51,7 @@
                 android:layout_centerHorizontal="true"
 
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="5dip"
+                android:layout_marginStart="5dip"
                 android:layout_marginTop="5dip"
                 android:background="@drawable/border"
                 android:visibility="gone"
@@ -66,7 +66,7 @@
 
                 <ImageView
                     android:id="@+id/img_dealed"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:scaleType="fitXY" />
@@ -81,7 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="31dp"
                     android:layout_marginTop="15dp"
-                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="50dp"
                     android:textStyle="bold"
                     android:textSize="@dimen/TextSize"
                     android:text="data collection" />
@@ -91,7 +91,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="45dp"
-                        android:layout_marginLeft="50dp"
+                        android:layout_marginStart="50dp"
                         android:text="" />
 
 
@@ -102,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="290dp"
-                android:layout_marginLeft="115dp"
+                android:layout_marginStart="115dp"
                 android:orientation="horizontal">
 
                 <Button
@@ -123,11 +123,11 @@
                     android:id="@+id/track_only"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
                     android:text="Track Only"
                     android:background="@drawable/button"
                     android:textColor="#ffffff"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     android:visibility="gone" />
 
                 <Button
@@ -138,19 +138,19 @@
 
                     android:text="Start Calibration"
                     android:textColor="#00033d"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     android:visibility="gone" />
 
                 <Button
                     android:id="@+id/distanceStart"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
-                    android:layout_marginLeft="55dp"
+                    android:layout_marginStart="55dp"
 
                     android:text="Start Distance"
                     android:background="@drawable/button"
                     android:textColor="#ffffff"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     android:visibility="visible"/>
             </LinearLayout>
         </RelativeLayout>

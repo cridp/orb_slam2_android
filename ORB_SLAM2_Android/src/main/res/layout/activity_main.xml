@@ -26,7 +26,7 @@
             android:layout_height="52dip"
             android:text="dataset_mode"
             android:textColor="#ffffff"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:visibility="gone" />
 
         <Button
@@ -36,13 +36,13 @@
             android:background="#00033d"
             android:text="START"
             android:textColor="#ffffff"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="200dp"
+            android:layout_marginStart="200dp"
             android:layout_marginTop="100dp"
             android:background="@null"
             android:text="if you wang to change files  >>>"

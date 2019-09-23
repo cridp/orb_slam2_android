@@ -14,6 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 
 public class FileChooserAdapter extends BaseAdapter {
 
@@ -23,8 +24,7 @@ public class FileChooserAdapter extends BaseAdapter {
 	public FileChooserAdapter(Context context, ArrayList<FileInfo> fileLists) {
 		super();
 		mFileLists = fileLists;
-		mLayoutInflater = (LayoutInflater) context
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 
 	@Override
@@ -65,11 +65,11 @@ public class FileChooserAdapter extends BaseAdapter {
 		
 		holder.tvFileName.setText(fileInfo.getFileName());
 		
-		if(fileInfo.isDirectory()){      //文件夹
+		if(fileInfo.isDirectory()){      //Folder
 			holder.imgFileIcon.setImageResource(R.drawable.ic_folder);
 			holder.tvFileName.setTextColor(Color.GRAY);
 		}
-		else {                           //未知文件
+		else {                           //Unknown file
 			holder.imgFileIcon.setImageResource(R.drawable.ic_file_unknown);
 			holder.tvFileName.setTextColor(Color.GRAY);
 		}
@@ -88,7 +88,7 @@ public class FileChooserAdapter extends BaseAdapter {
 
 	
 	enum FileType {
-		FILE , DIRECTORY;
+		FILE , DIRECTORY
 	}
 
 	// =========================
@@ -106,10 +106,7 @@ public class FileChooserAdapter extends BaseAdapter {
 		}
   
 		public boolean isDirectory(){
-			if(fileType == FileType.DIRECTORY)
-				return true ;
-			else
-				return false ;
+			return fileType == FileType.DIRECTORY;
 		}
 		
 		public String getFileName() {
@@ -129,6 +126,7 @@ public class FileChooserAdapter extends BaseAdapter {
 		}
 
 		@Override
+		@NonNull
 		public String toString() {
 			return "FileInfo [fileType=" + fileType + ", fileName=" + fileName
 					+ ", filePath=" + filePath + "]";
